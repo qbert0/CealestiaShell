@@ -1,0 +1,1 @@
+Đọc trạng thái hiện tại của shell và trạng thái trước đó , cùng với đăc tả về ... để tra lời cho tôi tại sao lại có vấn đề này xảy ra so với bản trước. Sau đó điền vào File ... ghi lý do lỗi và hướng để sửa lại. Sau đó chạy và sửa lại. Sửa xong thì ghi lại những chỗ, file đã sửa và lý do vì sao sửa ở đó.

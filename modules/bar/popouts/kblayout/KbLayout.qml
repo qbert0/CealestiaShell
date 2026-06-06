@@ -19,9 +19,11 @@ ColumnLayout {
 
     Component.onCompleted: kb.start()
 
-    KbLayoutModel {
-        id: kb
-    }
+    // KbLayoutModel {
+    //     id: kb
+    // }
+
+    Fcitx5Model { id: kb }
 
     StyledText {
         Layout.topMargin: Tokens.padding.normal
