@@ -11,19 +11,13 @@ ColumnLayout {
     id: root
 
     function refresh() {
-        kb.refresh();
+        Fcitx5.refresh();
     }
 
     spacing: Tokens.spacing.small
     width: Tokens.sizes.bar.kbLayoutWidth
 
-    Component.onCompleted: kb.start()
-
-    // KbLayoutModel {
-    //     id: kb
-    // }
-
-    Fcitx5Model { id: kb }
+    Component.onCompleted: Fcitx5.start()
 
     StyledText {
         Layout.topMargin: Tokens.padding.normal
@@ -35,7 +29,7 @@ ColumnLayout {
     ListView {
         id: list
 
-        model: kb.visibleModel
+        model: Fcitx5.visibleModel
 
         Layout.fillWidth: true
         Layout.rightMargin: Tokens.padding.small
@@ -44,7 +38,7 @@ ColumnLayout {
         clip: true
         interactive: true
         implicitHeight: Math.min(contentHeight, 320)
-        visible: kb.visibleModel.count > 0
+        visible: Fcitx5.visibleModel.count > 0
         spacing: Tokens.spacing.small
 
         add: Transition {
@@ -99,7 +93,7 @@ ColumnLayout {
 
                 onClicked: {
                     if (!kbDelegate.isDisabled)
-                        kb.switchTo(kbDelegate.layoutIndex);
+                        Fcitx5.switchTo(kbDelegate.layoutIndex);
                 }
 
                 anchors.left: parent.left
@@ -126,7 +120,7 @@ ColumnLayout {
     }
 
     Rectangle {
-        visible: kb.activeLabel.length > 0
+        visible: Fcitx5.activeLabel.length > 0
         Layout.fillWidth: true
         Layout.rightMargin: Tokens.padding.small
         Layout.topMargin: Tokens.spacing.small
@@ -139,7 +133,7 @@ ColumnLayout {
     RowLayout {
         id: activeRow
 
-        visible: kb.activeLabel.length > 0
+        visible: Fcitx5.activeLabel.length > 0
         Layout.fillWidth: true
         Layout.rightMargin: Tokens.padding.small
         Layout.topMargin: Tokens.spacing.small
@@ -155,7 +149,7 @@ ColumnLayout {
 
         StyledText {
             Layout.fillWidth: true
-            text: kb.activeLabel
+            text: Fcitx5.activeLabel
             elide: Text.ElideRight
             font.weight: 500
             color: Colours.palette.m3primary
@@ -168,7 +162,7 @@ ColumnLayout {
                 popIn.restart();
             }
 
-            target: kb
+            target: Fcitx5
         }
 
         SequentialAnimation {

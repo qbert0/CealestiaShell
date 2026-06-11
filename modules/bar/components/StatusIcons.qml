@@ -134,7 +134,7 @@ StyledRect {
 
             sourceComponent: StyledText {
                 animate: true
-                text: Hypr.kbLayout
+                text: Fcitx5.shortLabel
                 color: root.colour
                 font.family: Tokens.font.family.mono
             }

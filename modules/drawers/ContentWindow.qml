@@ -39,19 +39,7 @@ StyledWindow {
     readonly property real shadowOpacity: 0.7 * (1 - fsTransitionProg)
     readonly property real borderLayoutThickness: hasFullscreen ? 0 : contentItem.Config.border.thickness
 
-    readonly property int dragMaskPadding: {
-        if (focusGrab.active || panels.popouts.isDetached)
-            return 0;
-
-        if (monitor?.lastIpcObject.specialWorkspace?.name || monitor?.activeWorkspace.lastIpcObject.windows > 0)
-            return 0;
-
-        const thresholds = [];
-        for (const panel of ["dashboard", "launcher", "session", "sidebar"])
-            if (contentItem.Config[panel].enabled)
-                thresholds.push(contentItem.Config[panel].dragThreshold);
-        return Math.max(...thresholds);
-    }
+    readonly property int dragMaskPadding: 0
 
     onHasFullscreenChanged: {
         visibilities.launcher = false;
@@ -127,7 +115,7 @@ StyledWindow {
 
     Item {
         anchors.fill: parent
-        opacity: Colours.transparency.enabled ? Colours.transparency.base : 1
+        opacity: Colours.transparency.enabled ? Colours.transparency.base : 0.65
         layer.enabled: true
         layer.effect: MultiEffect {
             shadowEnabled: true
